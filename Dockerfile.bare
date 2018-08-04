@@ -1,0 +1,10 @@
+# 
+# Bare build that expects a pre-installed node_modules directory
+# For usage in CI systems that install packages as a separate step
+# 
+
+FROM node:10.8-alpine
+WORKDIR /app
+COPY package.json package-lock.json src /app
+CMD npm start
+EXPOSE 3000

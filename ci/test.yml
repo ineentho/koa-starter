@@ -1,0 +1,14 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: node
+    tag: 9.11
+
+inputs:
+- name: installed-koa-starter-dev
+  path: koa-starter
+
+run:
+  path: koa-starter/ci/test.sh

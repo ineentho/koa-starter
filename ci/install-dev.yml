@@ -1,0 +1,16 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: node
+    tag: 10.8-alpine
+
+inputs:
+- name: koa-starter
+
+outputs:
+- name: installed-koa-starter-dev
+
+run:
+  path: koa-starter/ci/install-dev.sh

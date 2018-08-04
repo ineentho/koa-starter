@@ -1,0 +1,68 @@
+{
+  "name": "koa-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node --experimental-modules --require dotenv/config src/index.mjs",
+    "dev": "ROARR_LOG=true nodemon -x 'npm start' | roarr pretty-print",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "lint:eslint": "eslint --ext mjs .",
+    "lint:prettier": "prettier --list-different -- **/*.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ineentho/koa-starter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ineentho/koa-starter/issues"
+  },
+  "homepage": "https://github.com/ineentho/koa-starter#readme",
+  "dependencies": {
+    "@roarr/middleware-serialize-error": "^1.0.0",
+    "common-tags": "^1.8.0",
+    "compose-function": "^3.0.3",
+    "dotenv": "^6.0.0",
+    "koa": "^2.5.2",
+    "koa-roarr-logger": "^1.2.0",
+    "koa-router": "^7.4.0",
+    "roarr": "^2.5.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.56",
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.56",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.4.2",
+    "eslint": "^5.2.0",
+    "eslint-plugin-jest": "^21.18.0",
+    "jest": "^23.4.2",
+    "nodemon": "^1.18.3",
+    "prettier": "^1.14.0",
+    "regenerator-runtime": "^0.12.1"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "<rootDir>/**/*.test.mjs"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "node",
+      "mjs"
+    ],
+    "transform": {
+      "\\.mjs$": "babel-jest"
+    }
+  }
+}
