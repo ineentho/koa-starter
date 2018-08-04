@@ -2,7 +2,7 @@ resources:
 - name: koa-starter
   type: git
   source:
-    uri: ssh://git@github.com:ineentho/koa-starter.git
+    uri: https://github.com/ineentho/koa-starter.git
     branch: master
 
 jobs:
@@ -12,12 +12,11 @@ jobs:
     - do:
       - get: koa-starter
         trigger: true
-      - task: install
-        file: koa-starter/ci/install.yml
+      - aggregate:
+        - task: install-dev
+          file: koa-starter/ci/install-dev.yml
   - aggregate:
     - task: lint
-      file: client/ci/lint.yml
+      file: koa-starter/ci/lint.yml
     - task: test
-      file: client/ci/test.yml
-    - task: build
-      file: client/ci/build.yml
+      file: koa-starter/ci/test.yml
